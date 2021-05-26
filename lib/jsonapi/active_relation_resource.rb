@@ -423,8 +423,7 @@ module JSONAPI
         resource_table_alias = join_manager.join_details_by_relationship(relationship)[:alias]
 
         pluck_fields = [
-          Arel.sql("#{_table_name}.#{_primary_key} AS \"source_id\""),
-          sql_field_with_alias(resource_table_alias, resource_klass._primary_key)
+          Arel.sql("#{_table_name}.#{_primary_key} AS \"source_id\"")
         ]
 
         cache_field = resource_klass.attribute_to_model_field(:_cache_field) if options[:cache]
